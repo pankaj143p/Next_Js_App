@@ -54,8 +54,7 @@ export const authOptions: NextAuthOptions = {
                 token._id = user._id?.toString()
                 token.isVerified = user.isVerified
                 token.isAcceptingMessage = user.isAcceptingMessage
-                token.username = user.username
-                
+                token.username = user.username    
             }
             return token
         },
