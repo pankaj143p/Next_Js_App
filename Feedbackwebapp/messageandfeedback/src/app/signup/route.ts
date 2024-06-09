@@ -2,6 +2,7 @@ import dbConnect from "@/lib/dbConnects";
 import UserModel from "@/Models/userModel"
 import bcrypt from 'bcrypt'
 import { sendVerificationEmail } from "@/Helpers/sendVerificationsEmail";
+import { log } from "console";
 
 export async function POST(request : Request){
     await dbConnect();
@@ -23,8 +24,10 @@ export async function POST(request : Request){
                 {
                  status: 400,
                 }
-          ) 
-        }
+                ) 
+                }
+        console.log(username);
+        
         // by email
         const existingUserVerifiedByEmail = await UserModel.findOne({
             email
