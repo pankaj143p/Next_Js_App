@@ -62,13 +62,19 @@ export const authOptions: NextAuthOptions = {
             session,
             token
         }) {
+            if(token){
+                session.user._id = token._id
+                session.user.isVerified = token.isVerified
+                session.user.isAcceptingMessage = token.isAcceptingMessage
+                session.user.username = token.username
+                
+                
+            }
             return session
         },
     },
     pages: {
         signIn: "/sign-in"
-
-
     },
     session: {
         strategy: "jwt"
