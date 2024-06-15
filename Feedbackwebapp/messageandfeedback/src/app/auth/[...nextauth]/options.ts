@@ -29,6 +29,8 @@ export const authOptions: NextAuthOptions = {
                     if (!user.isVerified) {
                         throw new Error("User not verified , please verify first")
                     }
+                    console.log("everything is fine");
+                    
                     // password validation check password is correct or not
                     const isPassword = await bcrypt.compare(credentials.password, user.password)
                     //  when password is correct 
